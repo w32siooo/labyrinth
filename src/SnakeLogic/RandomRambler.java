@@ -2,6 +2,7 @@ package SnakeLogic;
 
 import javafx.scene.Scene;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Stack;
 
@@ -83,46 +84,72 @@ public class RandomRambler implements GameObject {
                         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0}/*finish*/
         };
 
-
-
-
-
         //j = x
         //i = y
 
-        Stack<Integer> stack = new Stack<>();
-
-
+        Stack stack = new Stack<>();
 
         //move right
         if(wallsArray[this.getY()][this.getX()+1]==0){
 
-            stack.add(0);
+            int[] tempArray = new int[]{this.getX(),this.getY()};
+
+            stack.add(tempArray);
+
+
+
             this.setX(this.getX()+1);
-            System.out.println("moving right");
 
         }
         else{
             //move down
             if(wallsArray[this.getY()+1][this.getX()]==0){
+                int[] tempArray = new int[]{this.getX(),this.getY()};
+                stack.add(tempArray);
 
-                stack.add(1);
                 this.setY(this.getY()+1);
-                System.out.println("moving down");
+                //System.out.println("moving down");
             }
             else{
                 //move up
 
-                if(wallsArray[this.getY()-1][this.getX()]==0){
-                    stack.add(2);
+                if(wallsArray[this.getY()-1][this.getX()]==0    ){
+                    int[] tempArray = new int[]{this.getX(),this.getY()};
+                    stack.add(tempArray);
+
                     this.setY(this.getY()-1);
-                    System.out.println("moving up");
+                    //System.out.println("moving up");
+
+
+
+                    int[] test2Array =(int[]) stack.peek();
+                    int[] testArray = new int[]{this.getX(),this.getY()};
+
+                    if (testArray[0]==test2Array[0]){
+                        System.out.println("THIS IS A GREAT SUCESS");
+
+
+                    }
+
+
+
+
+
 
                 }
 
 
-
                 }
+            System.out.println(Arrays.toString((int[]) stack.peek()));
+
+            int[] testArray = new int[]{0,1};
+            int[] test2Array =(int[]) stack.peek();
+
+            if (testArray[0]==test2Array[0]){
+                System.out.println("THIS IS A GREAT SUCESS");
+
+            }
+
         /*
          //if we cant move down we move to the left
                 if(wallsArray[this.getY()+1][this.getX()-1]==0){
