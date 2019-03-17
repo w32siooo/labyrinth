@@ -14,6 +14,10 @@ public class RandomRambler implements GameObject {
     public int speedX = 1;
     public int speedY = 1;
     int delay;
+    boolean hasmoved=true;
+    boolean hasmoved2=true;
+
+
 
     public int getX() {
         return X;
@@ -90,7 +94,7 @@ public class RandomRambler implements GameObject {
         Stack stack = new Stack<>();
 
         //move right
-        if(wallsArray[this.getY()][this.getX()+1]==0){
+        if(wallsArray[this.getY()][this.getX()+1]==0&&hasmoved2){
 
             int[] tempArray = new int[]{this.getX(),this.getY()};
 
@@ -103,7 +107,8 @@ public class RandomRambler implements GameObject {
         }
         else{
             //move down
-            if(wallsArray[this.getY()+1][this.getX()]==0){
+
+            if(wallsArray[this.getY()+1][this.getX()]==0&&hasmoved){
                 int[] tempArray = new int[]{this.getX(),this.getY()};
                 stack.add(tempArray);
 
@@ -112,8 +117,7 @@ public class RandomRambler implements GameObject {
             }
             else{
                 //move up
-
-                if(wallsArray[this.getY()-1][this.getX()]==0    ){
+                if(wallsArray[this.getY()-1][this.getX()]==0 ){
                     int[] tempArray = new int[]{this.getX(),this.getY()};
                     stack.add(tempArray);
 
@@ -127,6 +131,7 @@ public class RandomRambler implements GameObject {
 
                     if (testArray[0]==test2Array[0]){
                         System.out.println("THIS IS A GREAT SUCESS");
+                        hasmoved = false;
 
 
                     }
@@ -136,19 +141,31 @@ public class RandomRambler implements GameObject {
 
 
 
+
+                }
+                else{
+                    if(wallsArray[this.getY()][this.getX()-1]==0){
+
+                        this.setX(this.getX()-1);
+                        hasmoved2=false;
+
+                        
+
+                    }
+
                 }
 
 
                 }
-            System.out.println(Arrays.toString((int[]) stack.peek()));
+         //   System.out.println(Arrays.toString((int[]) stack.peek()));
 
-            int[] testArray = new int[]{0,1};
-            int[] test2Array =(int[]) stack.peek();
+           // int[] testArray = new int[]{0,1};
+           // int[] test2Array =(int[]) stack.peek();
 
-            if (testArray[0]==test2Array[0]){
-                System.out.println("THIS IS A GREAT SUCESS");
+          //  if (testArray[0]==test2Array[0]){
+          //      System.out.println("THIS IS A GREAT SUCESS");
 
-            }
+        //    }
 
         /*
          //if we cant move down we move to the left
