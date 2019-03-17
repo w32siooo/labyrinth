@@ -97,29 +97,47 @@ public class RandomRambler implements GameObject {
         //move right
         if(wallsArray[this.getY()][this.getX()+1]==0){
 
-            stack.add(1);
+            stack.add(0);
             this.setX(this.getX()+1);
-            System.out.println("added");
+            System.out.println("moving right");
 
-        }
-
-        //move down
-        if(wallsArray[this.getY()+1][this.getX()]==0){
-
-            stack.add(1);
-            this.setY(this.getY()+1);
-            System.out.println("added");
         }
         else{
-            //if we cant move down we move to the left
-            if(wallsArray[this.getY()+1][this.getX()-1]==0){
+            //move down
+            if(wallsArray[this.getY()+1][this.getX()]==0){
 
                 stack.add(1);
-               // this.setY(this.getY()+1);
-                this.setX(this.getX()-1);
-
-                System.out.println("added");
+                this.setY(this.getY()+1);
+                System.out.println("moving down");
             }
+            else{
+                //move up
+
+                if(wallsArray[this.getY()-1][this.getX()]==0){
+                    stack.add(2);
+                    this.setY(this.getY()-1);
+                    System.out.println("moving up");
+
+                }
+
+
+
+                }
+        /*
+         //if we cant move down we move to the left
+                if(wallsArray[this.getY()+1][this.getX()-1]==0){
+
+                    stack.add(1);
+                    // this.setY(this.getY()+1);
+                    this.setX(this.getX()-1);
+
+                    System.out.println("moving left");
+                }
+         */
+
+
+
+
 
 
         }
