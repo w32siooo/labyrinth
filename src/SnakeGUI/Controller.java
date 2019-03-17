@@ -37,8 +37,8 @@ public class Controller {
     private RandomRambler randomRambler = new RandomRambler();
 
 
-    ArrayList<Item> items = new ArrayList<Item>();
-    ArrayList<Item> walls = new ArrayList<Item>();
+    ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> walls = new ArrayList<>();
 
 
     public void btnStartAction(ActionEvent event)
@@ -78,23 +78,25 @@ public class Controller {
     private void AddItems() {
         // add walls here?
 
-        int[][] wop = new int[][]{{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-        {
-            1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-        },
-        {
-            1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-        },
-        {
-            1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-        }
-                ,
+        int[][] wop = new int[][]{
+                {       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                },
                 {
-                        1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1
+                        1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1
+                },
+                {
+                        1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1
+                },
+                {
+                        1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1
                 }
                 ,
                 {
-                        1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1
+                        1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1
+                }
+                ,
+                {
+                        1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1
                 }
                 ,
                 {
@@ -194,7 +196,7 @@ public class Controller {
 
     }
 
-    public void keyPressed(KeyCode keyCode)
+    private void keyPressed(KeyCode keyCode)
     {
 
         System.out.println("key pressed: " + keyCode);
