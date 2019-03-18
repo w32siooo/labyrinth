@@ -16,6 +16,50 @@ public class RandomRambler implements GameObject {
     int delay;
     boolean hasmoved=true;
     boolean hasmoved2=true;
+    int[] test2Array = {5,5};
+    int instance = 0;
+    int[][] wallsArray = new int[][]{
+/*start*/       {       0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {
+                    2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
+            {
+                    1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
+            {
+                    1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
+            {
+                    1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1},
+            {
+                    1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1},
+            {
+                    1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1},
+            {
+                    1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1},
+            {
+                    1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1},
+            {
+                    1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1},
+            {
+                    1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
+            {
+                    1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+            {
+                    1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
+            {
+                    1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
+            {
+                    1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
+            {
+                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
+            {
+                    1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1},
+            {
+                    1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1},
+            {
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+            {
+                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0}/*finish*/
+    };
+
 
 
 
@@ -46,61 +90,29 @@ public class RandomRambler implements GameObject {
     public void depthFirst(){
 
 
-        int[][] wallsArray = new int[][]{
-/*start*/       {       0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                {
-                        2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
-                {
-                        1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
-                {
-                        1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
-                {
-                        1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1},
-                {
-                        1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1},
-                {
-                        1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1},
-                {
-                        1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1},
-                {
-                        1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1},
-                {
-                        1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1},
-                {
-                        1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
-                {
-                        1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
-                {
-                        1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
-                {
-                        1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
-                {
-                        1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
-                {
-                        1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
-                {
-                        1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1},
-                {
-                        1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1},
-                {
-                        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                {
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0}/*finish*/
-        };
 
+
+        //        while(wallsArray[this.getY()][this.getX()+1]==0&&test2Array[0]!=this.getX()+1&&test2Array[1]!=this.getY()){
         //j = x
         //i = y
 
         Stack stack = new Stack<>();
 
+        //check if we can move right
+
+        movement(0);
+
+        test(0);
+
+
         //move right
+/*
+
         if(wallsArray[this.getY()][this.getX()+1]==0&&hasmoved2){
 
             int[] tempArray = new int[]{this.getX(),this.getY()};
 
             stack.add(tempArray);
-
-
 
             this.setX(this.getX()+1);
 
@@ -125,22 +137,12 @@ public class RandomRambler implements GameObject {
                     //System.out.println("moving up");
 
 
-
                     int[] test2Array =(int[]) stack.peek();
                     int[] testArray = new int[]{this.getX(),this.getY()};
 
                     if (testArray[0]==test2Array[0]){
-                        System.out.println("THIS IS A GREAT SUCESS");
                         hasmoved = false;
-
-
                     }
-
-
-
-
-
-
 
                 }
                 else{
@@ -149,14 +151,21 @@ public class RandomRambler implements GameObject {
                         this.setX(this.getX()-1);
                         hasmoved2=false;
 
-                        
-
+                    }
+                    else{
+                        System.out.println("no more paths");
+                        hasmoved=true;
+                        hasmoved2=true;
                     }
 
                 }
 
 
+
+
                 }
+
+                */
          //   System.out.println(Arrays.toString((int[]) stack.peek()));
 
            // int[] testArray = new int[]{0,1};
@@ -182,11 +191,11 @@ public class RandomRambler implements GameObject {
 
 
 
-
+/*
 
         }
 
-        /*
+
         for (int i = 0; i < 20 ; i++) {
 
             for (int j = 0; j < 30; j++) {
@@ -205,6 +214,58 @@ public class RandomRambler implements GameObject {
         }
         */
 
+
+    }
+
+    private void movement(int type) {
+        if(wallsArray[this.getY()][this.getX()+1]==type){
+
+
+            //mark as visited
+            wallsArray[this.getY()][this.getX()]=type+2;
+            //move to the right 1 tile
+
+            this.setX(this.getX()+1);
+
+        }
+
+        //check if we can move down
+//        while(wallsArray[this.getY()+1][this.getX()]==0&&test2Array[0]!=this.getX()&&test2Array[1]!=this.getY()){
+        if(wallsArray[this.getY()+1][this.getX()]==type){
+            //mark as visited
+            wallsArray[this.getY()][this.getX()]=type+2;
+
+            //move to the down 1 tile
+            this.setY(this.getY()+1);
+
+        }
+
+        //check if we can move left
+
+        if(wallsArray[this.getY()][this.getX()-1]==type){
+            //add current position to stack
+            wallsArray[this.getY()][this.getX()]=type+2;
+
+            //move to the right 1 tile
+            this.setX(this.getX()-1);
+
+        }
+
+        if(wallsArray[this.getY()-1][this.getX()]==type){
+            //add current position to stack
+            wallsArray[this.getY()][this.getX()]=type+2;
+
+            //move to the down 1 tile
+            this.setY(this.getY()-1);
+        }
+    }
+
+    private void test(int type) {
+        if(wallsArray[this.getY()-1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()-1]!=type&&wallsArray[this.getY()+1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()+1]!=type){
+           // System.out.println(this.getX()+this.getY());
+            System.out.println("stuck");
+            movement(2);
+        }
 
 
     }
