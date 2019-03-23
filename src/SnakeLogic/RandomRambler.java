@@ -89,9 +89,15 @@ public class RandomRambler implements GameObject {
 
         Stack stack = new Stack<>();
 
-        movement(0);
+        if(this.getX()==21&&this.getY()==1){}
+            else{
 
-        test(0);
+            movement(0);
+
+            unstick(0);
+
+        }
+
 
     }
 
@@ -137,10 +143,10 @@ public class RandomRambler implements GameObject {
         }
     }
 
-    private void test(int type) {
+    private void unstick(int type) {
         if(wallsArray[this.getY()-1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()-1]!=type&&wallsArray[this.getY()+1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()+1]!=type){
            // System.out.println(this.getX()+this.getY());
-            System.out.println("stuck");
+            System.out.println("unstick");
             movement(2);
         }
 
