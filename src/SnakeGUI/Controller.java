@@ -31,47 +31,6 @@ public class Controller {
     private int gameLoopDelay = 500;
     private float refreshRate =300;
     private KeyCode keyPressed = KeyCode.BACK_SPACE;
-    public int[][] wallsArray = new int[][]{
-/*start*/   {       0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1},
-            {
-                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1},
-            {
-                    1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1},
-            {
-                    1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1},
-            {
-                    1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1},
-            {
-                    1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1},
-            {
-                    1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1},
-            {
-                    1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1},
-            {
-                    1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1},
-            {
-                    1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1},
-            {
-                    1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
-            {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
-            {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
-            {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
-            {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
-            {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
-            {
-                    1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1},
-            {
-                    1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1},
-            {
-                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1},
-            {
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}/*finish*/
-    };
 
     // my player instance
     private Player player = new Player();
@@ -80,6 +39,8 @@ public class Controller {
 
     ArrayList<Item> items = new ArrayList<>();
     private ArrayList<Item> walls = new ArrayList<>();
+    private ArrayList<Item> beens = new ArrayList<>();
+
 
 
     public void btnStartAction(ActionEvent event)
@@ -122,42 +83,14 @@ public class Controller {
 
 
 
-        for (int i = 0; i < wallsArray.length; i++) {
+        for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
             for (int j = 0; j <30 ; j++) {
 
-                if(wallsArray[i][j]!=0)
+                if(randomRambler.getWallsArray()[i][j]!=0)
                 walls.add(new Wall(j,i));
-
             }
         }
-
-
-
-
-//        for (int i = 10; i < 30; i++) {
-//            walls.add(new Wall(i,10));
-//        }
-//
-//        for (int i = 10; i < 30; i++) {
-//            walls.add(new Wall(i,15));
-//        }
-//
-//        for (int i = 0; i < 20; i++) {
-//            walls.add(new Wall(5,i));
-//        }
-//
-//        for (int i = 10; i < 20; i++) {
-//            walls.add(new Wall(25,i));
-//        }
-
-
-
-
-//        items.add(new Item(Color.GREEN, 3,3));
-//        items.add(new Item(Color.RED, 12,9));
-//        items.add(new Item(Color.GREY, 0,7));
-        //refactroring: would be nice to add player and walls here somehow!?
 
     }
 
@@ -231,17 +164,37 @@ public class Controller {
 
         // remove everything?
         g.clearRect(0,0,width*fieldWidth ,height*fieldHeight);
-/*
-        // draw all fields
-        g.setFill(Color.BLUE);
-        for (int i = 0; i < width ; i++) {
-            for (int j = 0; j < height ; j++) {
-                g.fillRoundRect(i*fieldWidth, j*fieldHeight, fieldWidth,fieldHeight, 5, 5);
-            }
+
+
+
+
+
+        for (Item wall : walls){
+
+            g.setFill(Color.GREY);
+
+                           g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
+
         }
 
+        for (Item wall : beens){
 
-*/
+            g.setFill(Color.RED);
+
+            g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
+
+        }
+
+        //tester
+
+        for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
+
+            for (int j = 0; j <30 ; j++) {
+
+                if(randomRambler.getWallsArray()[i][j]==2)
+                    beens.add(new Wall(j,i));
+            }
+        }
 
         //draw rambler
         g.setFill(Color.YELLOWGREEN);
@@ -250,28 +203,5 @@ public class Controller {
 
         // draw walls
 
-        for (Item wall : walls){
-            g.setFill(Color.GREY);
-
-                           g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
-
-        }
-
-        // draw items
-//        int i = 0;
-//        for (Item item : items)
-//        {
-//
-//                g.setFill(item.getColor());
-//
-//
-//                g.fillRoundRect(item.getX() * fieldWidth, item.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
-//                i++;
-//        }
-
-        // could be removed if player was in the list of items?
-        // draw 'player'
-//        g.setFill(Color.BLACK);
-//        g.fillRoundRect(this.player.getX() * fieldWidth, this.player.getY() * fieldHeight, fieldWidth, fieldHeight, 3, 3);
     }
 }

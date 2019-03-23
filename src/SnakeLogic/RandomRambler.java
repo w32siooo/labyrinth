@@ -18,7 +18,12 @@ public class RandomRambler implements GameObject {
     boolean hasmoved2=true;
     int[] test2Array = {5,5};
     int instance = 0;
-    int[][] wallsArray = new int[][]{
+
+    public int[][] getWallsArray() {
+        return wallsArray;
+    }
+
+    private int[][] wallsArray = new int[][]{
 /*start*/   {       0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1},
             {
                     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1},
@@ -27,7 +32,7 @@ public class RandomRambler implements GameObject {
             {
                     1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1},
             {
-                    1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1},
+                    1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1},
             {
                     1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1},
             {
@@ -39,19 +44,19 @@ public class RandomRambler implements GameObject {
             {
                     1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1},
             {
-                    1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
+                    1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
+                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
+                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
+                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
+                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
             {
-                    1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1},
+                    1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1},
             {
                     1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1},
             {
@@ -59,6 +64,8 @@ public class RandomRambler implements GameObject {
             {
                     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}/*finish*/
     };
+
+
 
 
     public int getX() {
@@ -94,7 +101,7 @@ public class RandomRambler implements GameObject {
 
             movement(0);
 
-            unstick(0);
+            unstuck(0);
 
         }
 
@@ -114,7 +121,7 @@ public class RandomRambler implements GameObject {
         }
 
         //check if we can move down
-        if(wallsArray[this.getY()+1][this.getX()]==type){
+        else if(wallsArray[this.getY()+1][this.getX()]==type){
             //mark as visited
             wallsArray[this.getY()][this.getX()]=type+2;
 
@@ -125,7 +132,7 @@ public class RandomRambler implements GameObject {
 
         //check if we can move left
 
-        if(wallsArray[this.getY()][this.getX()-1]==type){
+        else if(wallsArray[this.getY()][this.getX()-1]==type){
             //add current position to stack
             wallsArray[this.getY()][this.getX()]=type+2;
 
@@ -134,7 +141,7 @@ public class RandomRambler implements GameObject {
 
         }
 
-        if(wallsArray[this.getY()-1][this.getX()]==type){
+        else if(wallsArray[this.getY()-1][this.getX()]==type){
             //add current position to stack
             wallsArray[this.getY()][this.getX()]=type+2;
 
@@ -143,13 +150,14 @@ public class RandomRambler implements GameObject {
         }
     }
 
-    private void unstick(int type) {
+    private void unstuck(int type) {
         if(wallsArray[this.getY()-1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()-1]!=type&&wallsArray[this.getY()+1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()+1]!=type){
            // System.out.println(this.getX()+this.getY());
             System.out.println("unstick");
+
+            //recursion until unstuck...
             movement(2);
         }
-
 
     }
 
