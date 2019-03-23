@@ -43,6 +43,7 @@ public class Controller {
 
 
 
+
     public void btnStartAction(ActionEvent event)
     {
         System.out.println("btn clicked");
@@ -167,6 +168,16 @@ public class Controller {
 
 
 
+        //beens
+
+        for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
+
+            for (int j = 0; j <30 ; j++) {
+
+                if(randomRambler.getWallsArray()[i][j]==2)
+                    beens.add(new Wall(j,i));
+            }
+        }
 
 
         for (Item wall : walls){
@@ -177,24 +188,16 @@ public class Controller {
 
         }
 
+
         for (Item wall : beens){
 
-            g.setFill(Color.RED);
+            g.setFill(Color.INDIANRED);
 
             g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
 
         }
 
-        //tester
 
-        for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
-
-            for (int j = 0; j <30 ; j++) {
-
-                if(randomRambler.getWallsArray()[i][j]==2)
-                    beens.add(new Wall(j,i));
-            }
-        }
 
         //draw rambler
         g.setFill(Color.YELLOWGREEN);
