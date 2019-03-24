@@ -29,6 +29,8 @@ public class Controller {
     private boolean actiones = false;
     private int clicks = 0;
     private boolean greedy = false;
+    boolean runonce = false;
+
 
 
     private RandomRambler randomRambler = new RandomRambler(1, 1);
@@ -60,9 +62,7 @@ public class Controller {
     public void greedy()
     {
         //labelStatus.setText("test");
-
-        greedy =true;
-
+   
 
 
     }
@@ -158,29 +158,33 @@ public class Controller {
 
         if (actiones) randomRambler.depthFirst();
 
-        if(greedy) randomRambler.greedyAlgo();
+        if (greedy) randomRambler.greedyAlgo();
 
         //beens
 
 
-        if (randomRambler.getY() == 0) {
-            for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
-                for (int j = 0; j < 58; j++) {
+            if (randomRambler.getY() == 0) {
+                while (!runonce) {
+                for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
-                    if (randomRambler.getWallsArray()[i][j] == 2)
-                        beens.add(new Wall(j, i));
+                    for (int j = 0; j < 58; j++) {
+
+                        if (randomRambler.getWallsArray()[i][j] == 2)
+                            beens.add(new Wall(j, i));
+                    }
                 }
-            }
 
-            for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
+                for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
-                for (int j = 0; j < 58; j++) {
+                    for (int j = 0; j < 58; j++) {
 
-                    if (randomRambler.getWallsArray()[i][j] == 4)
-                        beens2.add(new Wall(j, i));
+                        if (randomRambler.getWallsArray()[i][j] == 4)
+                            beens2.add(new Wall(j, i));
+                    }
                 }
-            }
+                    runonce=true;
+                }
         }
     }
 
