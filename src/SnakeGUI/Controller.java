@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
 import java.util.*;
@@ -28,15 +27,14 @@ public class Controller {
     private int height = 20;
     private float refreshRate =10;
     private boolean actiones = false;
+    int clicks = 0;
 
-    private RandomRambler randomRambler = new RandomRambler();
 
+    private RandomRambler randomRambler = new RandomRambler(1, 1);
 
     ArrayList<Item> items = new ArrayList<>();
     private ArrayList<Item> walls = new ArrayList<>();
     private ArrayList<Item> beens = new ArrayList<>();
-
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     public void btnStartAction()
@@ -49,11 +47,45 @@ public class Controller {
 
     }
 
-    public void actiones(ActionEvent event)
+    public void actiones()
     {
         //labelStatus.setText("test");
 
         actiones = true;
+    }
+
+    public void switchPos()
+    {
+        switch (clicks)
+        {
+            case 0 :
+                randomRambler.setX(15);
+                randomRambler.setY(17);
+                break;
+
+            case 1:
+                randomRambler.setX(3);
+                randomRambler.setY(17);
+                break;
+
+            case 2:
+                randomRambler.setX(3);
+                randomRambler.setY(7);
+                break;
+
+            case 3:
+                randomRambler.setX(21);
+                randomRambler.setY(4);
+                break;
+
+
+
+
+        }
+        clicks++;
+
+
+
     }
 
     /**

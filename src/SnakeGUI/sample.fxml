@@ -17,17 +17,19 @@
    <top>
       <FlowPane prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
 
-            <Button  mnemonicParsing="false" onAction="#btnStartAction" text="DepthFirst">
+            <Button  mnemonicParsing="false" onAction="#btnStartAction" text="BFS">
                <FlowPane.margin>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </FlowPane.margin>
             </Button>
-            <Button mnemonicParsing="false" text="GreedySearch">
+          <Button  onAction="#actiones" text="DFS" />
+
                <FlowPane.margin>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </FlowPane.margin>
-            </Button>
-            <Button  onAction="#actiones" text="Depth first step by step" />
+          <Button onAction="#switchPos" text="SwitchPos">
+
+          </Button>
 
       </FlowPane>
    </top>
