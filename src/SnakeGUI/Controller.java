@@ -27,7 +27,7 @@ public class Controller {
     private int height = 40;
     private float refreshRate =10;
     private boolean actiones = false;
-    int clicks = 0;
+    private int clicks = 0;
 
 
     private RandomRambler randomRambler = new RandomRambler(1, 1);
@@ -64,13 +64,13 @@ public class Controller {
                 break;
 
             case 1:
-                randomRambler.setX(3);
-                randomRambler.setY(17);
+                randomRambler.setX(2);
+                randomRambler.setY(31);
                 break;
 
             case 2:
                 randomRambler.setX(29);
-                randomRambler.setY(8);
+                randomRambler.setY(25);
                 break;
 
             case 3:
