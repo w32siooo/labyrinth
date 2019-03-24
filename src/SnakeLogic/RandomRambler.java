@@ -104,6 +104,7 @@ public class RandomRambler implements GameObject {
     }
 
     private void movement(int type) {
+        //check if we can move right
         if(wallsArray[this.getY()][this.getX()+1]==type){
 
 
@@ -128,16 +129,17 @@ public class RandomRambler implements GameObject {
         //check if we can move left
 
         else if(wallsArray[this.getY()][this.getX()-1]==type){
-            //add current position to stack
+            //mark as visited
             wallsArray[this.getY()][this.getX()]=type+2;
 
             //move to the right 1 tile
             this.setX(this.getX()-1);
 
         }
+        //check if we can move up
 
         else if(wallsArray[this.getY()-1][this.getX()]==type){
-            //add current position to stack
+            //mark as visited
             wallsArray[this.getY()][this.getX()]=type+2;
 
             //move to the down 1 tile
