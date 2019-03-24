@@ -2,7 +2,6 @@ package SnakeGUI;
 
 
 import SnakeLogic.Item;
-import SnakeLogic.Player;
 import SnakeLogic.RandomRambler;
 import SnakeLogic.Wall;
 import javafx.animation.AnimationTimer;
@@ -27,14 +26,9 @@ public class Controller {
     private double fieldWidth;
     private int width = 30;
     private int height = 20;
-    private Random random = new Random();
-    private int gameLoopDelay = 50;
     private float refreshRate =10;
-    private KeyCode keyPressed = KeyCode.BACK_SPACE;
     private boolean actiones = false;
 
-    // my player instance
-    private Player player = new Player();
     private RandomRambler randomRambler = new RandomRambler();
 
 
@@ -44,14 +38,14 @@ public class Controller {
 
 
 
-    public void btnStartAction(ActionEvent event)
+    @SuppressWarnings("StatementWithEmptyBody")
+    public void btnStartAction()
     {
         //labelStatus.setText("test");
         while(!randomRambler.depthFirst());
         {
             System.out.println("cleared");
         }
-
 
     }
 
@@ -72,7 +66,6 @@ public class Controller {
         calculateFields();
 
         // this position is used by player
-        getRandomPosition();
         //drawCanvas();
 
         // Start and control game loop
@@ -92,8 +85,6 @@ public class Controller {
         // add walls here?
 
 
-
-
         for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
             for (int j = 0; j <30 ; j++) {
@@ -105,12 +96,6 @@ public class Controller {
 
     }
 
-    private void keyPressed(KeyCode keyCode)
-    {
-
-        System.out.println("key pressed: " + keyCode);
-        this.keyPressed = keyCode;
-    }
 
     /**
      * Game loop - executed continously during the game
@@ -118,50 +103,12 @@ public class Controller {
      */
     private void update(long now)
     {
-        switch (keyPressed)
-        {
-            case S:
-                this.player.setY(player.getY()+1);
-                //this.Y++;
-                break;
-            case A:
-                this.player.setX(player.getX()-1);
-                break;
-            case D:
-                this.player.setX(player.getX()+1);
-                break;
-            case W:
-                this.player.setY(player.getY()-1);
-                break;
-        }
-
-        // random rambler update
-        // probably looking for walls????
-        // update RR position(x,y)
 
         drawCanvas();
-        //getRandomPosition();
-
-        //randomRambler.update();
-
-
-
 
         if (actiones) randomRambler.depthFirst();
-
-
-        //System.out.println(now);
-// 0
     }
 
-    /**
-     * Get a random position
-     */
-
-    private void getRandomPosition() {
-        player.setX(random.nextInt(width));
-        player.setY(random.nextInt(height));
-    }
 
     /**
      * Calculate height and width of each field
@@ -180,8 +127,6 @@ public class Controller {
         // remove everything?
         g.clearRect(0,0,width*fieldWidth ,height*fieldHeight);
 
-
-
         //beens
 
         for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
@@ -199,9 +144,7 @@ public class Controller {
             g.setFill(Color.GREY);
 
                            g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
-
         }
-
 
         for (Item wall : beens){
 
@@ -210,8 +153,6 @@ public class Controller {
             g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
 
         }
-
-
 
         //draw rambler
         g.setFill(Color.YELLOWGREEN);
