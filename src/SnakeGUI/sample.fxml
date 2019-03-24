@@ -6,31 +6,48 @@
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SnakeGUI.Controller">
-   <center>
-      <Canvas id="canvas" fx:id="canvas" height="714.0" width="1200.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-      </Canvas>
-   </center>
-   <top>
-      <FlowPane prefHeight="35.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+            prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="SnakeGUI.Controller">
+    <center>
+        <Canvas id="canvas" fx:id="canvas" height="714.0" width="1200.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+        </Canvas>
+    </center>
+    <top>
+        <FlowPane prefHeight="35.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
 
-            <Button  mnemonicParsing="false" onAction="#btnStartAction" text="BFS">
-               <FlowPane.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </FlowPane.margin>
+            <Button mnemonicParsing="false" onAction="#btnStartAction" text="BFS">
+                <FlowPane.margin>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                </FlowPane.margin>
             </Button>
-          <Button  onAction="#actiones" text="DFS" />
 
-               <FlowPane.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </FlowPane.margin>
-          <Button onAction="#switchPos" text="SwitchPos">
+            <Button onAction="#actiones" text="DFS">
 
-          </Button>
+            <FlowPane.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+            </FlowPane.margin>
+        </Button>
 
-      </FlowPane>
-   </top>
+
+        <Button onAction="#switchPos" text="SwitchPos">
+            <FlowPane.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+            </FlowPane.margin>
+
+            </Button>
+
+
+            <Button onAction="#greedy" text="greedy">
+                <FlowPane.margin>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                </FlowPane.margin>
+
+            </Button>
+
+        </FlowPane>
+    </top>
 </BorderPane>

@@ -127,6 +127,9 @@ public class RandomRambler implements GameObject {
 
     public void greedyAlgo() {
 
+        
+
+
     }
 
     private void movement(int type) {

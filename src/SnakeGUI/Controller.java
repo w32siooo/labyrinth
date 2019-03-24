@@ -28,6 +28,7 @@ public class Controller {
     private float refreshRate =10;
     private boolean actiones = false;
     private int clicks = 0;
+    private boolean greedy = false;
 
 
     private RandomRambler randomRambler = new RandomRambler(1, 1);
@@ -54,6 +55,16 @@ public class Controller {
         //labelStatus.setText("test");
 
         actiones = true;
+    }
+
+    public void greedy()
+    {
+        //labelStatus.setText("test");
+
+        greedy =true;
+
+
+
     }
 
     public void switchPos()
@@ -146,6 +157,8 @@ public class Controller {
         drawCanvas();
 
         if (actiones) randomRambler.depthFirst();
+
+        if(greedy) randomRambler.greedyAlgo();
 
         //beens
 
