@@ -119,7 +119,6 @@ public class RandomRambler implements GameObject {
 
             movement(0);
 
-            unstuck(0);
             return false;
 
         }
@@ -170,6 +169,10 @@ public class RandomRambler implements GameObject {
 
             //move to the down 1 tile
             this.setY(this.getY() - 1);
+        }
+        else {
+            unstuck(0);
+
         }
     }
 

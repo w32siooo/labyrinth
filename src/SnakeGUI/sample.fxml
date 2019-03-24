@@ -15,7 +15,7 @@
       </Canvas>
    </center>
    <top>
-      <FlowPane prefHeight="74.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+      <FlowPane prefHeight="35.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
 
             <Button  mnemonicParsing="false" onAction="#btnStartAction" text="BFS">
                <FlowPane.margin>

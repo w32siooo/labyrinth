@@ -139,12 +139,25 @@ public class Controller {
      * Game loop - executed continously during the game
      * @param now game time in nano seconds
      */
-    private void update(long now)
-    {
+    private void update(long now) {
 
         drawCanvas();
 
         if (actiones) randomRambler.depthFirst();
+
+        //beens
+
+
+        if (randomRambler.getY() == 0) {
+            for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
+
+                for (int j = 0; j < 58; j++) {
+
+                    if (randomRambler.getWallsArray()[i][j] == 2)
+                        beens.add(new Wall(j, i));
+                }
+            }
+        }
     }
 
 
@@ -165,16 +178,7 @@ public class Controller {
         // remove everything?
         g.clearRect(0,0,width*fieldWidth ,height*fieldHeight);
 
-        //beens
 
-        for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
-
-            for (int j = 0; j <58 ; j++) {
-
-                if(randomRambler.getWallsArray()[i][j]==2)
-                    beens.add(new Wall(j,i));
-            }
-        }
 
 
         for (Item wall : walls){
