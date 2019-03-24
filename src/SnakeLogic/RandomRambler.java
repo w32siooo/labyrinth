@@ -83,7 +83,7 @@ public class RandomRambler implements GameObject {
 
         if(this.getX()==21&&this.getY()==0){
             //do nothing
-            System.out.println("It took " + times + " recursions to get through this maze.");
+            //System.out.println("It took " + times + " recursions to get through this maze.");
             return true;
 
 

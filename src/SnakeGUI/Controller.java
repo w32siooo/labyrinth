@@ -31,6 +31,7 @@ public class Controller {
     private int gameLoopDelay = 50;
     private float refreshRate =10;
     private KeyCode keyPressed = KeyCode.BACK_SPACE;
+    private boolean actiones = false;
 
     // my player instance
     private Player player = new Player();
@@ -48,10 +49,17 @@ public class Controller {
         //labelStatus.setText("test");
         while(!randomRambler.depthFirst());
         {
-            //run
+            System.out.println("cleared");
         }
 
 
+    }
+
+    public void actiones(ActionEvent event)
+    {
+        //labelStatus.setText("test");
+
+        actiones = true;
     }
 
     /**
@@ -139,7 +147,7 @@ public class Controller {
 
 
 
-       // randomRambler.depthFirst();
+        if (actiones) randomRambler.depthFirst();
 
 
         //System.out.println(now);
