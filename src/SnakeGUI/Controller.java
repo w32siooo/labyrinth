@@ -23,8 +23,8 @@ public class Controller {
 
     private double fieldHeight;
     private double fieldWidth;
-    private int width = 30;
-    private int height = 20;
+    private int width = 60;
+    private int height = 40;
     private float refreshRate =10;
     private boolean actiones = false;
     int clicks = 0;
@@ -69,8 +69,8 @@ public class Controller {
                 break;
 
             case 2:
-                randomRambler.setX(4);
-                randomRambler.setY(7);
+                randomRambler.setX(29);
+                randomRambler.setY(8);
                 break;
 
             case 3:
@@ -79,7 +79,7 @@ public class Controller {
                 break;
 
             case 4:
-                randomRambler.setX(27);
+                randomRambler.setX(52);
                 randomRambler.setY(17);
                 break;
             case 5:
@@ -125,7 +125,7 @@ public class Controller {
 
         for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
-            for (int j = 0; j <30 ; j++) {
+            for (int j = 0; j <58 ; j++) {
 
                 if(randomRambler.getWallsArray()[i][j]!=0)
                 walls.add(new Wall(j,i));
@@ -169,7 +169,7 @@ public class Controller {
 
         for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
-            for (int j = 0; j <30 ; j++) {
+            for (int j = 0; j <58 ; j++) {
 
                 if(randomRambler.getWallsArray()[i][j]==2)
                     beens.add(new Wall(j,i));
@@ -183,7 +183,6 @@ public class Controller {
 
                            g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
         }
-
         for (Item wall : beens){
 
             g.setFill(Color.INDIANRED);

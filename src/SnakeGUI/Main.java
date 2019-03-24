@@ -15,11 +15,11 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         //loader.load(getClass().getResource("SnakeGUI.fxml".ope));
         Parent root = loader.load();
-        primaryStage.setTitle("JakeGame");
+        primaryStage.setTitle("MazeSolving");
 
         Controller controller = (Controller) loader.getController();
 
-        Scene scene = new Scene(root, 600,400);
+        Scene scene = new Scene(root, 1200,800);
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {

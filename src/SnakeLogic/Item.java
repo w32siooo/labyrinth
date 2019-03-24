@@ -15,8 +15,6 @@ public class Item {
     }
     public Item(){};
 
-
-
     public int getX() {
         return x;
     }
