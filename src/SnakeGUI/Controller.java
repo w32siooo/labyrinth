@@ -25,7 +25,7 @@ public class Controller {
     private double fieldWidth;
     private int width = 60;
     private int height = 40;
-    private float refreshRate =10;
+    private float refreshRate =5;
     private boolean actiones = false;
     private int clicks = 0;
     private boolean greedy = false;
