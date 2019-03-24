@@ -77,7 +77,6 @@ public class RandomRambler implements GameObject {
     }
 
 
-
     public boolean depthFirst(){
 
         if(this.getX()==21&&this.getY()==0){
@@ -104,7 +103,6 @@ public class RandomRambler implements GameObject {
     private void movement(int type) {
         //check if we can move right
         if(wallsArray[this.getY()][this.getX()+1]==type){
-
 
             //mark as visited
             wallsArray[this.getY()][this.getX()]=type+2;
@@ -147,11 +145,14 @@ public class RandomRambler implements GameObject {
 
     private void unstuck(int type) {
 
-        if(this.getX()>0&&this.getY()>0)
-        if(wallsArray[this.getY()-1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()-1]!=type&&wallsArray[this.getY()+1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()+1]!=type){
+        //this is to avoid array index out of bounds errors when we are 1 tile from the edge
+        if(this.getX()>0&&this.getY()>0) {
+            //this will only run if we have nowhere else to go. That is, if every position around us is either visited or a wall.
+            if (wallsArray[this.getY() - 1][this.getX()] != type && wallsArray[this.getY()][this.getX() - 1] != type && wallsArray[this.getY() + 1][this.getX()] != type && wallsArray[this.getY()][this.getX() + 1] != type) {
 
-            //recursion until unstuck...
-            movement(2);
+                //so if we are stuck, we will keep moving back where we were before until an unvisited position is avaiable.
+                movement(2);
+            }
         }
 
     }
