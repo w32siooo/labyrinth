@@ -59,7 +59,7 @@ public class Controller {
         switch (clicks)
         {
             case 0 :
-                randomRambler.setX(15);
+                randomRambler.setX(16);
                 randomRambler.setY(17);
                 break;
 
@@ -69,7 +69,7 @@ public class Controller {
                 break;
 
             case 2:
-                randomRambler.setX(3);
+                randomRambler.setX(4);
                 randomRambler.setY(7);
                 break;
 
@@ -78,9 +78,15 @@ public class Controller {
                 randomRambler.setY(4);
                 break;
 
-
-
-
+            case 4:
+                randomRambler.setX(27);
+                randomRambler.setY(17);
+                break;
+            case 5:
+                randomRambler.setX(1);
+                randomRambler.setY(1);
+                clicks = -1;
+                break;
         }
         clicks++;
 
