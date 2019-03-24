@@ -7,18 +7,12 @@ import java.util.Random;
 import java.util.Stack;
 
 public class RandomRambler implements GameObject {
-    private Random random = new Random();
     private boolean alreadyExecuted =false;
     private int X;
     private int Y;
-    public int speedX = 1;
     private int speedY = 1;
-    private int delay;
-    boolean hasmoved=true;
-    boolean hasmoved2=true;
-    int[] test2Array = {5,5};
-    int instance = 0;
-    private int unstick;
+    private int times=0;
+
 
     public int[][] getWallsArray() {
         return wallsArray;
@@ -49,24 +43,22 @@ public class RandomRambler implements GameObject {
             {
                     1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
+                    1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
+                    1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
+                    1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1},
             {
-                    1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
+                    1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1},
             {
-                    1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1},
+                    1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1},
             {
-                    1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1},
+                    1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1},
             {
                     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1},
             {
                     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}/*finish*/
     };
-
-
 
 
     public int getX() {
@@ -85,30 +77,29 @@ public class RandomRambler implements GameObject {
         Y = y;
     }
 
-    public void collision() {
-        if(!alreadyExecuted) {
-            speedY = speedY*-1;
-            alreadyExecuted = true;
-            delay=2000;
-        }
-    }
 
-    public void depthFirst(){
 
-        Stack stack = new Stack<>();
+    public boolean depthFirst(){
 
-        if(this.getX()==21&&this.getY()==1){
+        if(this.getX()==21&&this.getY()==0){
             //do nothing
-            System.out.println("the end");
+            System.out.println("It took " + times + " recursions to get through this maze.");
+            return true;
+
+
         }
             else{
 
             movement(0);
 
             unstuck(0);
+            return false;
 
         }
 
+    }
+
+    public void greedyAlgo(){
 
     }
 
@@ -155,10 +146,10 @@ public class RandomRambler implements GameObject {
     }
 
     private void unstuck(int type) {
+
+        if(this.getX()>0&&this.getY()>0)
         if(wallsArray[this.getY()-1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()-1]!=type&&wallsArray[this.getY()+1][this.getX()]!=type&&wallsArray[this.getY()][this.getX()+1]!=type){
-           // System.out.println(this.getX()+this.getY());
-            System.out.println("We have recursed: " + unstick + " times");
-            unstick++;
+            times++;
 
             //recursion until unstuck...
             movement(2);

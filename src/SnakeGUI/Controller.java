@@ -28,8 +28,8 @@ public class Controller {
     private int width = 30;
     private int height = 20;
     private Random random = new Random();
-    private int gameLoopDelay = 500;
-    private float refreshRate =300;
+    private int gameLoopDelay = 50;
+    private float refreshRate =10;
     private KeyCode keyPressed = KeyCode.BACK_SPACE;
 
     // my player instance
@@ -43,13 +43,15 @@ public class Controller {
 
 
 
-
     public void btnStartAction(ActionEvent event)
     {
-        System.out.println("btn clicked");
-        labelStatus.setText("test");
-        getRandomPosition();
-        drawCanvas();
+        //labelStatus.setText("test");
+        while(!randomRambler.depthFirst());
+        {
+            //run
+        }
+
+
     }
 
     /**
@@ -133,7 +135,11 @@ public class Controller {
         //getRandomPosition();
 
         //randomRambler.update();
-        randomRambler.depthFirst();
+
+
+
+
+       // randomRambler.depthFirst();
 
 
         //System.out.println(now);
