@@ -35,6 +35,8 @@ public class Controller {
     ArrayList<Item> items = new ArrayList<>();
     private ArrayList<Item> walls = new ArrayList<>();
     private ArrayList<Item> beens = new ArrayList<>();
+    private ArrayList<Item> beens2 = new ArrayList<>();
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     public void btnStartAction()
@@ -157,6 +159,15 @@ public class Controller {
                         beens.add(new Wall(j, i));
                 }
             }
+
+            for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
+
+                for (int j = 0; j < 58; j++) {
+
+                    if (randomRambler.getWallsArray()[i][j] == 4)
+                        beens2.add(new Wall(j, i));
+                }
+            }
         }
     }
 
@@ -190,6 +201,14 @@ public class Controller {
         for (Item wall : beens){
 
             g.setFill(Color.INDIANRED);
+
+            g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
+
+        }
+
+        for (Item wall : beens2){
+
+            g.setFill(Color.CADETBLUE);
 
             g.fillRoundRect(wall.getX() * fieldWidth, wall.getY() * fieldHeight, fieldWidth, fieldHeight, 5, 5);
 
