@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-            prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="SnakeGUI.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SnakeGUI.Controller">
     <center>
-        <Canvas id="canvas" fx:id="canvas" height="714.0" width="1200.0" BorderPane.alignment="CENTER">
+        <Canvas id="canvas" fx:id="canvas" height="635.0" width="1200.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
-                <Insets/>
+                <Insets />
             </BorderPane.margin>
         </Canvas>
     </center>
     <top>
-        <FlowPane prefHeight="35.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+        <FlowPane prefHeight="65.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
 
-            <Button mnemonicParsing="false" onAction="#btnStartAction" text="BFS">
+            <Button mnemonicParsing="false" onAction="#btnStartAction" prefHeight="25.0" prefWidth="94.0" text="Bolean search">
                 <FlowPane.margin>
-                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                 </FlowPane.margin>
             </Button>
 
-            <Button onAction="#actiones" text="DFS">
+            <Button onAction="#actiones" prefHeight="25.0" prefWidth="182.0" text="Run Greedy / Greedy / DFS">
 
             <FlowPane.margin>
-                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
             </FlowPane.margin>
         </Button>
 
 
         <Button onAction="#switchPos" text="SwitchPos">
             <FlowPane.margin>
-                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
             </FlowPane.margin>
 
             </Button>
 
 
-            <Button onAction="#greedy" text="greedy">
+            <Button onAction="#greedy" text="Test">
                 <FlowPane.margin>
-                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                 </FlowPane.margin>
 
             </Button>

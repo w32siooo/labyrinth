@@ -5,7 +5,6 @@ import SnakeLogic.Item;
 import SnakeLogic.RandomRambler;
 import SnakeLogic.Wall;
 import javafx.animation.AnimationTimer;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -25,15 +24,14 @@ public class Controller {
     private double fieldWidth;
     private int width = 60;
     private int height = 40;
-    private float refreshRate =5;
-    private boolean actiones = false;
+    private float refreshRate =40;
+    private boolean action = false;
     private int clicks = 0;
     private boolean greedy = false;
-    boolean runonce = false;
 
-
-
-    private RandomRambler randomRambler = new RandomRambler(1, 1);
+    private RandomRambler randomRambler = new RandomRambler(2, 25);
+    private RandomRambler randomRambler2 = new RandomRambler(2, 2);
+    private RandomRambler randomRambler3 = new RandomRambler(15, 20);
 
     ArrayList<Item> items = new ArrayList<>();
     private ArrayList<Item> walls = new ArrayList<>();
@@ -44,8 +42,17 @@ public class Controller {
     @SuppressWarnings("StatementWithEmptyBody")
     public void btnStartAction()
     {
-        //labelStatus.setText("test");
         while(!randomRambler.depthFirst());
+        {
+            System.out.println("cleared");
+        }
+
+        while(!randomRambler2.greedy());
+        {
+            System.out.println("cleared");
+        }
+
+        while(!randomRambler3.greedy());
         {
             System.out.println("cleared");
         }
@@ -54,16 +61,14 @@ public class Controller {
 
     public void actiones()
     {
-        //labelStatus.setText("test");
 
-        actiones = true;
+        action = true;
     }
 
     public void greedy()
     {
-        //labelStatus.setText("test");
-   
 
+         greedy = true;
 
     }
 
@@ -72,8 +77,8 @@ public class Controller {
         switch (clicks)
         {
             case 0 :
-                randomRambler.setX(16);
-                randomRambler.setY(17);
+                randomRambler.setX(2);
+                randomRambler.setY(2);
                 break;
 
             case 1:
@@ -116,9 +121,6 @@ public class Controller {
 
         calculateFields();
 
-        // this position is used by player
-        //drawCanvas();
-
         // Start and control game loop
         new AnimationTimer(){
             long lastUpdate;
@@ -138,7 +140,7 @@ public class Controller {
 
         for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
 
-            for (int j = 0; j <58 ; j++) {
+            for (int j = 0; j <33 ; j++) {
 
                 if(randomRambler.getWallsArray()[i][j]!=0)
                 walls.add(new Wall(j,i));
@@ -156,36 +158,48 @@ public class Controller {
 
         drawCanvas();
 
-        if (actiones) randomRambler.depthFirst();
+        if (action) {
 
-        if (greedy) randomRambler.greedyAlgo();
+        randomRambler.depthFirst();
+        randomRambler2.greedy();
+        randomRambler3.greedy();
 
-        //beens
-
-
-
-            if (randomRambler.getY() == 0) {
-                while (!runonce) {
-                for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
-
-                    for (int j = 0; j < 58; j++) {
-
-                        if (randomRambler.getWallsArray()[i][j] == 2)
-                            beens.add(new Wall(j, i));
-                    }
-                }
-
-                for (int i = 0; i < randomRambler.getWallsArray().length; i++) {
-
-                    for (int j = 0; j < 58; j++) {
-
-                        if (randomRambler.getWallsArray()[i][j] == 4)
-                            beens2.add(new Wall(j, i));
-                    }
-                }
-                    runonce=true;
-                }
         }
+
+        if (greedy) randomRambler2.greedy();
+
+        //where we have been, used to paint where we have been. Is only run in the end.
+
+
+            RandomRambler RandomRambler[] = new RandomRambler[]{randomRambler,randomRambler2,randomRambler3};
+            for (RandomRambler rambler : RandomRambler) {
+                if (rambler.getY() == 2 && rambler.getX() == 22) {
+
+                    for (int i = 0; i < rambler.getWallsArray().length; i++) {
+
+                        for (int j = 0; j < 33; j++) {
+
+                            if (rambler.getWallsArray()[i][j] == 2)
+                                beens.add(new Wall(j, i));
+                        }
+                    }
+
+                    for (int i = 0; i < rambler.getWallsArray().length; i++) {
+
+                        for (int j = 0; j < 33; j++) {
+
+                            if (rambler.getWallsArray()[i][j] == 4)
+                                beens2.add(new Wall(j, i));
+                        }
+                    }
+
+                }
+            }
+
+        //
+
+
+        //
     }
 
 
@@ -205,8 +219,6 @@ public class Controller {
 
         // remove everything?
         g.clearRect(0,0,width*fieldWidth ,height*fieldHeight);
-
-
 
 
         for (Item wall : walls){
@@ -231,12 +243,24 @@ public class Controller {
 
         }
 
-        //draw rambler
+        //draw "ghosts"
         g.setFill(Color.YELLOWGREEN);
 
         g.fillRoundRect(this.randomRambler.getX() * fieldWidth, this.randomRambler.getY() * fieldHeight, fieldWidth, fieldHeight, 3, 3);
 
-        // draw walls
+        g.setFill(Color.RED);
+
+        g.fillRoundRect(this.randomRambler2.getX() * fieldWidth, this.randomRambler2.getY() * fieldHeight, fieldWidth, fieldHeight, 3, 3);
+
+        g.setFill(Color.PURPLE);
+
+        g.fillRoundRect(this.randomRambler3.getX() * fieldWidth, this.randomRambler3.getY() * fieldHeight, fieldWidth, fieldHeight, 3, 3);
+
+        // draw "pacman"
+
+        g.setFill(Color.YELLOW);
+
+        g.fillOval(22 * fieldWidth, 2 * fieldHeight, fieldWidth, fieldHeight);
 
     }
 }

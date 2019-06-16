@@ -13,21 +13,18 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        //loader.load(getClass().getResource("SnakeGUI.fxml".ope));
         Parent root = loader.load();
-        primaryStage.setTitle("MazeSolving");
+        primaryStage.setTitle("MazeSolving / Pacman");
 
         Controller controller = (Controller) loader.getController();
 
-        Scene scene = new Scene(root, 1200,800);
+        Scene scene = new Scene(root, 660,600);
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-               // controller.keyPressed(event.getCode());
             }
         });
         primaryStage.setScene(scene);
-        primaryStage.getScene().getStylesheets().add("SnakeGUI/stylesheet.css");
         primaryStage.show();
     }
 

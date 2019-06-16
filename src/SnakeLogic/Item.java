@@ -1,6 +1,5 @@
 package SnakeLogic;
 
-import javafx.scene.paint.Color;
 
 /**
  * Items in the "maze"
